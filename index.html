@@ -1,196 +1,294 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f8f6ef" />
-  <meta name="description" content="Napfwerk – ein 3er-Rotationsset aus Anti-Schling-Näpfen für Hunde und Katzen. Eine abwechslungsreiche Idee für die tägliche Fütterung." />
-  <title>Napfwerk – Drei Näpfe. Neue Abwechslung.</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
-    :root {
-      --cream:#f8f6ef; --paper:#fffef9; --mint:#dce7d6; --sage:#b8c9b1;
-      --forest:#294839; --pine:#365747; --olive:#667b58;
-      --ink:#27342a; --muted:#6d766d; --line:#e2e5da;
-      --shadow:0 18px 55px rgba(36,61,43,.10);
-      --radius:24px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    button{font:inherit}
-    .wrap{width:min(1140px,calc(100% - 44px));margin-inline:auto}
-    .announcement{background:var(--forest);color:#edf1e8;text-align:center;font-size:12px;letter-spacing:.05em;padding:9px 16px}
-    .nav-shell{background:rgba(248,246,239,.93);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(41,72,57,.07);backdrop-filter:blur(15px)}
-    nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:30px}
-    .logo{display:flex;align-items:center;gap:10px;font-family:Manrope,Arial,sans-serif;font-weight:800;letter-spacing:-.07em;font-size:26px}
-    .logo-symbol{width:39px;height:39px;display:grid;place-items:center;background:var(--forest);color:#fff;border-radius:13px}
-    .links{display:flex;align-items:center;gap:34px;color:#4c5e4e;font-size:14px;font-weight:600}
-    .links a:hover{color:#112b20}
-    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--forest);color:white;border:1px solid var(--forest);border-radius:999px;padding:14px 23px;font-weight:700;font-size:14px;transition:transform .2s,background .2s}
-    .nav-cta:hover,.button:hover{background:#1d372a;transform:translateY(-2px)}
-    .button.secondary{background:transparent;color:var(--forest);border-color:#b8c6b5}
-    .button.secondary:hover{background:#edf0e5}
-    .hero{padding:78px 0 108px;position:relative;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center}
-    .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.19em;color:var(--olive);display:flex;gap:10px;align-items:center}
-    .eyebrow::before{content:'';display:block;width:25px;height:2px;background:var(--olive)}
-    h1,h2,h3,p{margin-top:0}
-    h1,h2,h3{font-family:Manrope,Arial,sans-serif}
-    h1{font-size:clamp(43px,5.2vw,72px);letter-spacing:-.073em;line-height:1.085;margin:25px 0 22px;font-weight:800;max-width:670px}
-    .hero h1 span{color:#7d9971}
-    .lead{max-width:490px;font-size:17px;line-height:1.8;color:#647064;margin-bottom:30px}
-    .actions{display:flex;flex-wrap:wrap;gap:13px}
-    .micro{margin-top:31px;display:flex;align-items:center;gap:11px;color:#647264;font-size:12px}
-    .micro-dot{height:8px;width:8px;background:#8cab86;border-radius:50%}
-    .hero-art{position:relative;min-height:500px;display:grid;place-items:center}
-    .art-back{position:absolute;inset:28px 3px 0 31px;background:#dfe8d6;border-radius:48% 48% 29% 26% / 45% 43% 38% 34%;transform:rotate(-5deg)}
-    .art-corner{position:absolute;right:12px;top:10px;width:120px;height:120px;border:1px solid rgba(41,72,57,.13);border-radius:50%}
-    .art-ring{position:absolute;bottom:10px;left:0;width:125px;height:125px;border:1px solid rgba(41,72,57,.16);border-radius:50%}
-    .bowl-img{position:relative;z-index:1;width:100%;max-width:540px;filter:drop-shadow(0 30px 25px rgba(38,61,45,.14))}
-    .floating{position:absolute;z-index:2;right:0;bottom:42px;background:#fffef8;padding:18px 21px;box-shadow:var(--shadow);border-radius:19px;display:flex;align-items:center;gap:11px;font-size:13px;font-weight:700;color:var(--forest)}
-    .floating-icon{background:#e5eedf;border-radius:12px;padding:9px;display:grid;place-items:center}
-    .strip{border-block:1px solid var(--line);background:#f0f2e9;padding:21px 0}
-    .strip-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#537057;font-size:13px;font-weight:700}
-    .strip-item{display:flex;align-items:center;gap:9px}
-    section.block{padding:108px 0}
-    .section-head{max-width:680px;margin-bottom:42px}
-    h2{font-size:clamp(34px,3.65vw,51px);letter-spacing:-.06em;line-height:1.2;margin:17px 0 17px}
-    .section-desc{color:var(--muted);font-size:16px;line-height:1.75}
-    .benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:21px}
-    .benefit{padding:35px 29px;background:var(--paper);border:1px solid #e7e9de;border-radius:var(--radius)}
-    .benefit-icon{width:52px;height:52px;border-radius:16px;background:#e9efe2;display:grid;place-items:center;color:var(--forest);margin-bottom:28px}
-    .benefit h3{font-size:21px;letter-spacing:-.045em;margin:0 0 12px}
-    .benefit p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:0}
-    .product-section{background:#ecf0e7}
-    .product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
-    .product{border-radius:var(--radius);overflow:hidden;background:var(--paper);border:1px solid #e0e6dc}
-    .product-visual{height:274px;display:grid;place-items:center;position:relative}
-    .product-visual.one{background:#e3e7d9}.product-visual.two{background:#e9e1d6}.product-visual.three{background:#d7e2d8}
-    .number{position:absolute;top:20px;left:22px;font-family:Manrope;font-size:12px;color:#677768;font-weight:800;letter-spacing:.09em}
-    .mini-bowl{width:min(88%,310px);filter:drop-shadow(0 16px 14px rgba(29,53,38,.14))}
-    .product-info{padding:25px 27px 30px}.product-info h3{font-size:20px;letter-spacing:-.05em;margin-bottom:10px}
-    .product-info p{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
-    .detail-note{font-size:12px;color:#718074;text-align:center;margin:24px auto 0;max-width:620px;line-height:1.6}
-    .story{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-    .story-illustration{background:#dce8d7;border-radius:40px;min-height:380px;position:relative;display:grid;place-items:center;overflow:hidden}
-    .story-illustration svg{width:84%;max-width:350px;height:auto;filter:drop-shadow(0 17px 14px rgba(41,72,57,.12))}
-    .story-list{display:grid;gap:21px;margin-top:29px}
-    .story-list>div{display:flex;gap:14px;align-items:flex-start;color:#485d4d;line-height:1.65;font-size:14px}
-    .check{flex:none;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#dce8d7;color:var(--forest);font-size:13px;font-weight:800}
-    .video-section{background:#294839;color:#fff;padding:100px 0}
-    .video-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
-    .video-section .eyebrow{color:#b7d5ad}.video-section .eyebrow:before{background:#b7d5ad}
-    .video-section h2{color:#fff}.video-section p{color:#d1ded2;line-height:1.8;font-size:15px}
-    .video-placeholder{aspect-ratio:16/9;border-radius:25px;background:linear-gradient(140deg,#dce8d7,#aec5ad);display:grid;place-items:center;overflow:hidden;position:relative;box-shadow:0 20px 50px rgba(12,29,19,.3)}
-    .video-placeholder::before{content:'';position:absolute;width:75%;height:75%;border:1px solid rgba(255,255,255,.5);border-radius:50%}
-    .video-placeholder::after{content:'';position:absolute;width:47%;height:84%;border:1px solid rgba(255,255,255,.5);border-radius:50%;transform:rotate(49deg)}
-    .video-label{z-index:1;background:#fffcf0;border-radius:18px;padding:20px 29px;text-align:center;color:#2f5340;box-shadow:var(--shadow)}
-    .video-label strong{display:block;font:800 21px Manrope;letter-spacing:-.05em;margin-bottom:6px}
-    .video-label span{font-size:13px;color:#637669}
-    iframe{border:0;width:100%;aspect-ratio:16/9;display:block;border-radius:25px}
-    .booking{text-align:center;padding:112px 0}
-    .booking-panel{padding:65px 25px;background:#e2eadc;border:1px solid #d8e3d4;border-radius:36px;position:relative;overflow:hidden}
-    .booking-panel::before,.booking-panel::after{content:'';position:absolute;width:190px;height:190px;border:1px solid rgba(49,83,62,.16);border-radius:50%}
-    .booking-panel::before{left:-82px;top:-80px}.booking-panel::after{right:-65px;bottom:-92px}
-    .booking-panel h2{max-width:650px;margin:16px auto}.booking-panel p{margin:0 auto 27px;max-width:570px;color:#5f705f;line-height:1.8}
-    #bookingButton[hidden]{display:none}
-    #bookingPending{font-size:13px;color:#637668;font-weight:700}
-    footer{border-top:1px solid var(--line);padding:35px 0 47px;background:#faf9f5}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
-    .footer-inner p{font-size:12px;color:var(--muted);margin:7px 0 0}
-    .footer-right{font-size:12px;color:#7b837b;max-width:390px;text-align:right;line-height:1.6}
-    @media (max-width:920px){.links{display:none}.hero-grid,.story,.video-grid{grid-template-columns:1fr;gap:30px}.hero{padding:63px 0}.hero-art{min-height:410px}.benefits,.product-grid{gap:13px}.benefit{padding:28px 21px}.story{gap:44px}.video-grid{gap:37px}}
-    @media (max-width:640px){.wrap{width:min(100% - 34px,1140px)}nav{height:69px}.nav-cta{padding:11px 14px;font-size:12px}.logo{font-size:23px}.hero{padding:45px 0 70px}.hero-art{min-height:310px}.art-back{inset:25px 10px 15px}.floating{bottom:0;right:1px;padding:11px 14px}.strip-inner{justify-content:flex-start;gap:14px 20px}section.block{padding:78px 0}.benefits,.product-grid{grid-template-columns:1fr}.product-visual{height:260px}.story-illustration{min-height:310px}.video-section{padding:70px 0}.booking{padding:75px 0}.booking-panel{padding:49px 20px}.footer-right{text-align:left}h1{margin-top:22px}.lead{font-size:15px}}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Napfwerk – Drei Näpfe, eine Idee</title>
+
+    <style>
+        /* Grundfarben und Schrift */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f7f2;
+            color: #2d3c32;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { line-height: 1.2; }
+        h2 { font-size: 30px; margin-bottom: 14px; }
+        a { text-decoration: none; }
+
+        /* Kopfbereich */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e1e5dd;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #315743;
+        }
+
+        nav a {
+            color: #315743;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover { text-decoration: underline; }
+
+        /* Allgemeine Abschnitte */
+        section { padding: 65px 8%; }
+        .inhalt { max-width: 1050px; margin: 0 auto; }
+        .beschreibung { max-width: 650px; color: #526057; }
+
+        .button {
+            display: inline-block;
+            background-color: #315743;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 8px;
+            margin-top: 14px;
+        }
+
+        .button:hover { background-color: #234231; }
+
+        /* Startbereich */
+        .start {
+            background-color: #e4ecdf;
+            padding-top: 85px;
+            padding-bottom: 85px;
+        }
+
+        .start-inhalt {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .start-text { max-width: 530px; }
+        .start h1 { font-size: 48px; margin: 10px 0 20px; }
+        .kleiner-text { color: #5c7561; font-weight: bold; }
+
+        .start-bild {
+            background-color: #f8faf5;
+            border-radius: 24px;
+            padding: 40px 25px;
+            text-align: center;
+            min-width: 290px;
+        }
+
+        .start-bild p { margin-bottom: 0; font-size: 14px; }
+        .napf-reihe { display: flex; justify-content: center; gap: 12px; }
+
+        /* Einfache Zeichnung der drei Näpfe */
+        .napf {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            background-color: #b7cbb5;
+            border: 9px solid #6d8d71;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #547358;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .napf.beige { background-color: #eee0c5; border-color: #c4af8d; color: #b39b75; }
+        .napf.hell { background-color: #d8e6d0; border-color: #93b08e; color: #789a76; }
+
+        /* Vorteile und Produkte */
+        .karten {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .karte {
+            background-color: white;
+            padding: 25px;
+            border: 1px solid #e3e7df;
+            border-radius: 14px;
+        }
+
+        .karte h3 { margin-top: 0; color: #315743; }
+        .karte p { color: #526057; margin-bottom: 0; }
+        .produkte { background-color: #eef2ea; }
+        .produktbild { display: flex; justify-content: center; margin-bottom: 22px; }
+        .hinweis { font-size: 13px; color: #637064; margin-top: 25px; }
+
+        /* Video und Terminbuchung */
+        .video-box {
+            background-color: #e4ecdf;
+            border: 1px dashed #9daf9a;
+            border-radius: 14px;
+            padding: 65px 20px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .video-box p { margin: 0; color: #526057; }
+        .video-box iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; }
+        .kontakt { background-color: #315743; color: white; text-align: center; }
+        .kontakt p { color: #e1eae0; }
+        .kontakt .button { background-color: white; color: #315743; }
+        .kontakt .button:hover { background-color: #e4ecdf; }
+
+        footer {
+            background-color: #f1f2ec;
+            padding: 22px 8%;
+            text-align: center;
+            font-size: 13px;
+            color: #637064;
+        }
+
+        /* Anpassung für kleinere Bildschirme */
+        @media (max-width: 750px) {
+            header { display: block; text-align: center; }
+            nav { margin-top: 12px; }
+            nav a { margin: 0 8px; }
+            .start-inhalt { flex-direction: column; align-items: stretch; }
+            .start h1 { font-size: 37px; }
+            .start-bild { min-width: 0; }
+            .karten { grid-template-columns: 1fr; }
+            section { padding: 50px 6%; }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="announcement">NAPFWERK · EINE NEUE IDEE FÜR DEN FUTTERNAPF</div>
-  <header class="nav-shell"><nav class="wrap" aria-label="Hauptnavigation">
-    <a class="logo" href="#start" aria-label="Napfwerk Startseite"><span class="logo-symbol" aria-hidden="true">✳</span>napfwerk<span style="color:#8da282">.</span></a>
-    <div class="links"><a href="#idee">Unsere Idee</a><a href="#set">Das Set</a><a href="#pitch">Pitch-Video</a></div>
-    <a class="nav-cta" href="#kontakt">Mehr erfahren <span aria-hidden="true">↗</span></a>
-  </nav></header>
+    <!-- Navigation -->
+    <header>
+        <div class="logo">napfwerk.</div>
+        <nav>
+            <a href="#idee">Unsere Idee</a>
+            <a href="#set">Das Set</a>
+            <a href="#video">Pitch-Video</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
 
-  <main>
-    <section class="hero" id="start"><div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Mit Liebe für Vierbeiner gedacht</div>
-        <h1>Drei Näpfe.<br><span>Neue Abwechslung.</span></h1>
-        <p class="lead">Warum sollte jeden Tag derselbe Napf auf dem Boden stehen? Napfwerk verbindet drei unterschiedliche Anti-Schling-Strukturen zu einem einfachen Rotationskonzept für Hunde und Katzen.</p>
-        <div class="actions"><a class="button" href="#set">Das Konzept entdecken <span aria-hidden="true">↗</span></a><a class="button secondary" href="#pitch">Pitch ansehen <span aria-hidden="true">▷</span></a></div>
-        <div class="micro"><span class="micro-dot"></span>3 Muster · 1 Idee · viele Fütterungsmomente</div>
-      </div>
-      <div class="hero-art" aria-label="Illustration eines dreiteiligen Napfsets">
-        <div class="art-back"></div><div class="art-corner"></div><div class="art-ring"></div>
-        <svg class="bowl-img" viewBox="0 0 620 565" role="img" aria-label="Drei stilisierte Futternäpfe in Salbeigrün und Sandfarben">
-          <defs><linearGradient id="b1" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#78977e"/><stop offset="1" stop-color="#496e56"/></linearGradient><linearGradient id="b2" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d4c5a6"/><stop offset="1" stop-color="#b9a580"/></linearGradient><linearGradient id="b3" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#a8bda0"/><stop offset="1" stop-color="#7c9b78"/></linearGradient></defs>
-          <g transform="translate(170 30) rotate(-9 135 135)"><ellipse cx="144" cy="176" rx="145" ry="125" fill="#31533d" opacity=".12"/><ellipse cx="141" cy="145" rx="141" ry="140" fill="url(#b2)"/><ellipse cx="141" cy="145" rx="120" ry="118" fill="#e7dbbf"/><path d="M56 105Q141 35 226 105M56 145Q141 80 226 145M56 185Q141 130 226 185" stroke="#c8b58d" stroke-width="16" fill="none" stroke-linecap="round"/><circle cx="141" cy="145" r="25" fill="#c8b58d"/></g>
-          <g transform="translate(20 220) rotate(13 135 135)"><ellipse cx="140" cy="175" rx="148" ry="126" fill="#31533d" opacity=".15"/><circle cx="135" cy="136" r="137" fill="url(#b1)"/><circle cx="135" cy="136" r="117" fill="#a5b9a1"/><g fill="none" stroke="#668a6b" stroke-width="18" stroke-linecap="round"><path d="M67 85L67 188"/><path d="M103 63L103 207"/><path d="M140 56L140 215"/><path d="M177 68L177 207"/><path d="M210 89L210 184"/></g></g>
-          <g transform="translate(310 253) rotate(-12 135 135)"><ellipse cx="136" cy="174" rx="147" ry="124" fill="#31533d" opacity=".13"/><circle cx="135" cy="135" r="137" fill="url(#b3)"/><circle cx="135" cy="135" r="117" fill="#c8d6be"/><path d="M136 46C182 46 224 86 224 134S182 221 134 221 48 179 48 134 90 48 135 48Z" stroke="#9cb397" stroke-width="17" fill="none"/><path d="M136 91C157 91 181 107 181 136S157 179 134 179 91 155 91 134 110 91 136 91Z" stroke="#9cb397" stroke-width="15" fill="none"/><circle cx="135" cy="136" r="16" fill="#9cb397"/></g>
-        </svg>
-        <div class="floating"><span class="floating-icon">✳</span><span>Ein Set, drei Strukturen</span></div>
-      </div>
-    </div></section>
+    <!-- Startseite -->
+    <section class="start">
+        <div class="inhalt start-inhalt">
+            <div class="start-text">
+                <p class="kleiner-text">DIE IDEE HINTER NAPFWERK</p>
+                <h1>Drei Näpfe.<br>Eine neue Art der Fütterung.</h1>
+                <p>Viele Hunde und Katzen fressen sehr schnell. Napfwerk ist unsere Idee
+                für ein Set aus drei Anti-Schling-Näpfen mit unterschiedlichen Mustern.
+                Durch den regelmäßigen Wechsel soll das Fressen langsamer und
+                abwechslungsreicher gestaltet werden.</p>
+                <a class="button" href="#set">Unser Konzept entdecken</a>
+            </div>
+            <div class="start-bild">
+                <div class="napf-reihe">
+                    <div class="napf">|||</div>
+                    <div class="napf beige">≈</div>
+                    <div class="napf hell">◎</div>
+                </div>
+                <p>Drei unterschiedliche Strukturen – ein Set</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="strip"><div class="wrap strip-inner"><span class="strip-item">✳ &nbsp; Drei unterschiedliche Muster</span><span class="strip-item">◌ &nbsp; Für Hunde & Katzen gedacht</span><span class="strip-item">♡ &nbsp; Abwechslung bei der Fütterung</span></div></div>
+    <!-- Erklärung der Idee -->
+    <section id="idee">
+        <div class="inhalt">
+            <h2>Was ist Napfwerk?</h2>
+            <p class="beschreibung">Napfwerk ist ein Konzept für Haustierbesitzer, die bei der
+            täglichen Fütterung mehr Abwechslung schaffen möchten. Statt immer
+            denselben Napf zu verwenden, können drei unterschiedliche
+            Anti-Schling-Strukturen abwechselnd eingesetzt werden.</p>
 
-    <section class="block" id="idee"><div class="wrap">
-      <div class="section-head"><div class="eyebrow">Die Idee dahinter</div><h2>Der Futternapf kann mehr.</h2><p class="section-desc">Fressen gehört jeden Tag dazu. Unser Konzept macht aus dieser Routine etwas Abwechslungsreicheres – mit drei wechselnden Napfstrukturen statt immer derselben Oberfläche.</p></div>
-      <div class="benefits">
-        <article class="benefit"><div class="benefit-icon" aria-hidden="true">✳</div><h3>Abwechslung</h3><p>Drei verschiedene Strukturen können abwechselnd eingesetzt werden und bringen neue Formen in die tägliche Fütterung.</p></article>
-        <article class="benefit"><div class="benefit-icon" aria-hidden="true">◷</div><h3>Bewusstes Fressen</h3><p>Die Anti-Schling-Strukturen sind darauf ausgelegt, die Futteraufnahme zu verlangsamen.</p></article>
-        <article class="benefit"><div class="benefit-icon" aria-hidden="true">♡</div><h3>Beschäftigung</h3><p>Unterschiedliche Vertiefungen können die Futteraufnahme abwechslungsreicher gestalten.</p></article>
-      </div>
-    </div></section>
+            <div class="karten">
+                <div class="karte">
+                    <h3>Langsamer fressen</h3>
+                    <p>Die verschiedenen Strukturen sollen dabei helfen, die Futteraufnahme zu verlangsamen.</p>
+                </div>
+                <div class="karte">
+                    <h3>Mehr Abwechslung</h3>
+                    <p>Durch den Wechsel der Näpfe verändert sich die Fütterung im Alltag.</p>
+                </div>
+                <div class="karte">
+                    <h3>Einfaches Konzept</h3>
+                    <p>Die drei Näpfe können je nach Bedarf abwechselnd verwendet werden.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section class="block product-section" id="set"><div class="wrap">
-      <div class="section-head"><div class="eyebrow">Das Napfwerk-Konzept</div><h2>Drei Formen. Ein Set.</h2><p class="section-desc">Jeder Napf steht für eine andere Struktur. Im Wechsel entsteht ein einfaches Rotationsprinzip.</p></div>
-      <div class="product-grid">
-        <article class="product"><div class="product-visual one"><span class="number">MUSTER 01</span><svg class="mini-bowl" viewBox="0 0 300 220" role="img" aria-label="Napf mit parallelen Linien"><ellipse cx="150" cy="174" rx="112" ry="31" fill="#54765a" opacity=".2"/><ellipse cx="150" cy="115" rx="115" ry="88" fill="#607e61"/><ellipse cx="150" cy="110" rx="98" ry="75" fill="#a5baa2"/><path d="M95 66V151M130 49V169M165 49V170M201 67V151" stroke="#719171" stroke-width="16" stroke-linecap="round"/></svg></div><div class="product-info"><h3>Das Linienmuster</h3><p>Längliche Strukturen schaffen verschiedene Wege zum Futter.</p></div></article>
-        <article class="product"><div class="product-visual two"><span class="number">MUSTER 02</span><svg class="mini-bowl" viewBox="0 0 300 220" role="img" aria-label="Napf mit wellenförmigen Linien"><ellipse cx="150" cy="174" rx="112" ry="31" fill="#54765a" opacity=".2"/><ellipse cx="150" cy="115" rx="115" ry="88" fill="#b9a783"/><ellipse cx="150" cy="110" rx="98" ry="75" fill="#e7dabb"/><path d="M76 82Q150 42 224 82M65 112Q150 72 235 112M78 145Q150 110 222 145" stroke="#c9b38a" stroke-width="14" fill="none" stroke-linecap="round"/></svg></div><div class="product-info"><h3>Das Wellenmuster</h3><p>Geschwungene Bereiche sorgen für eine andere Form der Futteraufnahme.</p></div></article>
-        <article class="product"><div class="product-visual three"><span class="number">MUSTER 03</span><svg class="mini-bowl" viewBox="0 0 300 220" role="img" aria-label="Napf mit konzentrischen Ringen"><ellipse cx="150" cy="174" rx="112" ry="31" fill="#54765a" opacity=".2"/><ellipse cx="150" cy="115" rx="115" ry="88" fill="#829d7f"/><ellipse cx="150" cy="110" rx="98" ry="75" fill="#c8d7c0"/><ellipse cx="150" cy="110" rx="72" ry="54" fill="none" stroke="#94b08f" stroke-width="14"/><ellipse cx="150" cy="110" rx="39" ry="28" fill="none" stroke="#94b08f" stroke-width="13"/><ellipse cx="150" cy="110" rx="12" ry="9" fill="#94b08f"/></svg></div><div class="product-info"><h3>Das Ringmuster</h3><p>Runde Vertiefungen ergänzen das Set um eine dritte Struktur.</p></div></article>
-      </div>
-      <p class="detail-note">Illustrative Konzeptdarstellung. Die tatsächliche Gestaltung und mögliche Wirkungen des Produkts sind noch nicht durch Produkttests bestätigt.</p>
-    </div></section>
+    <!-- Vorstellung der drei Napfmuster -->
+    <section class="produkte" id="set">
+        <div class="inhalt">
+            <h2>Unser 3er-Set</h2>
+            <p class="beschreibung">Jeder Napf hat eine andere Struktur. Zusammen bilden
+            sie die Grundlage unseres Rotationskonzepts.</p>
 
-    <section class="block"><div class="wrap story">
-      <div class="story-illustration"><svg viewBox="0 0 380 330" role="img" aria-label="Illustration eines Katzenkopfes über einem Futternapf"><path d="M79 82L101 27L148 56Q191 43 230 57L278 28L298 89Q318 122 290 165Q272 205 192 208Q113 205 91 163Q62 128 79 82Z" fill="#f8f5e9" stroke="#6f896e" stroke-width="9" stroke-linejoin="round"/><path d="M139 127Q151 115 163 127M216 127Q228 115 240 127" fill="none" stroke="#6f896e" stroke-width="8" stroke-linecap="round"/><path d="M184 147L199 147L191 156Z" fill="#6f896e"/><path d="M190 158Q180 172 169 160M190 158Q201 172 211 160" stroke="#6f896e" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M110 153L51 145M112 169L47 173M262 154L322 145M260 169L326 173" stroke="#6f896e" stroke-width="4" stroke-linecap="round"/><ellipse cx="191" cy="270" rx="134" ry="38" fill="#729576"/><path d="M57 263Q64 326 191 326Q315 326 325 263Z" fill="#56785b"/><ellipse cx="191" cy="259" rx="134" ry="36" fill="#b0c5ab"/><path d="M127 253H259M137 270H245" stroke="#799c7a" stroke-width="10" stroke-linecap="round"/></svg></div>
-      <div><div class="eyebrow">Für den Alltag gedacht</div><h2>Einfach wechseln.<br>Neu entdecken.</h2><p class="section-desc">Die Idee ist unkompliziert: Statt dauerhaft denselben Anti-Schling-Napf zu verwenden, werden drei verschiedene Strukturen im Alltag abgewechselt.</p><div class="story-list"><div><span class="check">✓</span><span>Das Rotationsprinzip lässt sich leicht erklären und ausprobieren.</span></div><div><span class="check">✓</span><span>Die unterschiedlichen Muster sind das Herzstück der Produktidee.</span></div><div><span class="check">✓</span><span>Das Konzept richtet sich an Menschen mit Hunden und Katzen.</span></div></div></div>
-    </div></section>
+            <div class="karten">
+                <div class="karte">
+                    <div class="produktbild"><div class="napf">|||</div></div>
+                    <h3>1. Linien</h3>
+                    <p>Gerade Erhöhungen bilden verschiedene Bereiche für das Futter.</p>
+                </div>
+                <div class="karte">
+                    <div class="produktbild"><div class="napf beige">≈</div></div>
+                    <h3>2. Wellen</h3>
+                    <p>Geschwungene Formen sorgen für eine andere Anordnung des Futters.</p>
+                </div>
+                <div class="karte">
+                    <div class="produktbild"><div class="napf hell">◎</div></div>
+                    <h3>3. Ringe</h3>
+                    <p>Runde Vertiefungen ergänzen das Set um eine dritte Variante.</p>
+                </div>
+            </div>
+            <p class="hinweis">Hinweis: Die Darstellungen sind vereinfacht. Napfwerk ist
+            eine Startup-Idee im Rahmen unseres Hochschulprojekts, kein bereits getestetes Produkt.</p>
+        </div>
+    </section>
 
-    <section class="video-section" id="pitch"><div class="wrap video-grid">
-      <div><div class="eyebrow">In 45 Sekunden</div><h2>Unsere Idee.<br>Auf den Punkt.</h2><p>Im Pitch-Video stellen wir Napfwerk und die Idee hinter dem Rotationsset vor. Das Video wird hier direkt abspielbar sein, sobald es fertig ist.</p></div>
-      <div id="videoContainer"><div class="video-placeholder"><div class="video-label"><strong>Pitch-Video folgt</strong><span>Hier wird bald unser Video zu sehen sein.</span></div></div></div>
-    </div></section>
+    <!-- Hier kommt später das selbstgedrehte YouTube-Video hin -->
+    <section id="video">
+        <div class="inhalt">
+            <h2>Unser Pitch-Video</h2>
+            <p class="beschreibung">In unserem kurzen Video stellen wir Napfwerk und
+            die Idee hinter dem Rotationsset vor.</p>
+            <div class="video-box">
+                <p>Unser Pitch-Video wird hier bald zu sehen sein.</p>
 
-    <section class="booking" id="kontakt"><div class="wrap"><div class="booking-panel"><div class="eyebrow" style="justify-content:center">Interesse an Napfwerk?</div><h2>Lasst uns über die Idee sprechen.</h2><p>Du möchtest mehr über das Konzept erfahren? Sobald unser Buchungslink bereitsteht, kannst du hier ein Gespräch vereinbaren.</p><a class="button" id="bookingButton" href="#kontakt" target="_blank" rel="noopener noreferrer" hidden>Gespräch vereinbaren <span aria-hidden="true">↗</span></a><div id="bookingPending">Terminbuchung folgt in Kürze.</div></div></div></section>
-  </main>
+                <!-- Wenn das Video fertig ist, den Text oben durch diesen Code ersetzen:
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_HIER"
+                    title="Napfwerk Pitch-Video" allowfullscreen></iframe>
+                -->
+            </div>
+        </div>
+    </section>
 
-  <footer><div class="wrap footer-inner"><div><a class="logo" href="#start" style="font-size:21px"><span class="logo-symbol" style="width:29px;height:29px;border-radius:10px;font-size:15px">✳</span>napfwerk<span style="color:#8da282">.</span></a><p>Mit Liebe für neugierige Vierbeiner.</p></div><div class="footer-right">Napfwerk ist ein fiktives Startup-Konzept im Rahmen eines Hochschulprojekts. Kein aktiver Produktverkauf.</div></div></footer>
-  <script>
-    // Später die echte YouTube-Video-ID und den echten Calendly-Link eintragen.
-    // Beispiel-Video: https://www.youtube.com/watch?v=ABCDEFGHIJK → ID: ABCDEFGHIJK
-    const YOUTUBE_VIDEO_ID = "";
-    const CALENDLY_URL = "";
+    <!-- Terminbuchung über Calendly -->
+    <section class="kontakt" id="kontakt">
+        <div class="inhalt">
+            <h2>Interesse an unserer Idee?</h2>
+            <p>Wir stellen Napfwerk gerne in einem persönlichen Gespräch vor.</p>
+            <p>Die Terminbuchung wird in Kürze freigeschaltet.</p>
 
-    if (/^[A-Za-z0-9_-]{11}$/.test(YOUTUBE_VIDEO_ID)) {
-      const frame = document.createElement("iframe");
-      frame.src = `https://www.youtube-nocookie.com/embed/${YOUTUBE_VIDEO_ID}`;
-      frame.title = "Napfwerk Pitch-Video";
-      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      frame.allowFullscreen = true;
-      frame.loading = "lazy";
-      document.getElementById("videoContainer").replaceChildren(frame);
-    }
-    if (/^https:\/\/calendly\.com\/[A-Za-z0-9/_-]+\/?(?:\?.*)?$/.test(CALENDLY_URL)) {
-      const button = document.getElementById("bookingButton");
-      button.href = CALENDLY_URL;
-      button.hidden = false;
-      document.getElementById("bookingPending").hidden = true;
-    }
-  </script>
+            <!-- Sobald der Calendly-Link vorhanden ist, den Satz oben ersetzen durch:
+            <a class="button" href="https://calendly.com/DEIN-LINK" target="_blank"
+               rel="noopener noreferrer">Gespräch vereinbaren</a>
+            -->
+        </div>
+    </section>
+
+    <footer>
+        Napfwerk – Startup-Konzept im Rahmen eines Hochschulprojekts.
+    </footer>
 </body>
 </html>
